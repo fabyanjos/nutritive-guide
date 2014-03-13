@@ -1,0 +1,85 @@
+@import "bootstrap.min.css.scss";
+@import "jasny-bootstrap.min.css.scss";
+$primary-color:	#6C6C6C;
+
+@mixin bg-gradient($from, $to) {
+    background-color: $to;
+    background-image: -webkit-gradient(linear, left top, left bottom, from($from), to($to));
+    background-image: -webkit-linear-gradient($from, $to);
+    background-image: -moz-linear-gradient($from, $to);
+    background-image: -o-linear-gradient($from, $to);
+    background-image: -ms-linear-gradient($from, $to);
+    background-image: linear-gradient($from, $to);
+}
+
+@mixin border-radius($radius) {
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+	border-radius: $radius;
+}
+@mixin box-shadow($angle, $distance, $blur, $color) {
+	-webkit-box-shadow: $angle $distance $blur $color;
+	-moz-box-shadow:    $angle $distance $blur $color;
+	box-shadow:         $angle $distance $blur $color;
+}
+
+body {
+	width: 100%;
+	margin-left: 10%;
+	font-size: 14px;
+	font-family: serif;
+	text-align: justify;
+	line-height: 1.5;
+	color: $primary-color;
+}
+.container {
+	margin: 25px 0 0 -20px;
+	width: 85%;
+	padding-left: 0;
+}
+:first-letter {
+	text-transform: capitalize;
+}
+
+table {
+	@extend .table;
+	@extend .table-striped;
+	@extend .table-hover;
+	@extend .table-condensed;
+}
+
+.panel {
+	@extend .panel;
+	@extend .panel-default;
+	@extend .table-responsive;
+}
+
+.navbar-toggle {
+  float: left;
+  margin-left: 15px;
+}
+@media (min-width: 0) {
+  .navbar-toggle {
+    display: block; /* force showing the toggle */
+  }
+}
+@media (min-width: 992px) {
+  body {
+    padding: 0;
+  }
+  .navbar {
+    right: auto;
+    background: none;
+    border: none;
+  }
+}
+nav {
+	@extend .navmenu;
+	@extend .navmenu-default;
+	@extend .navmenu-fixed-left;
+	@extend .offcanvas;
+}
+nav#side-menu ul {
+	@extend .nav;
+	@extend .navmenu-nav;
+}
