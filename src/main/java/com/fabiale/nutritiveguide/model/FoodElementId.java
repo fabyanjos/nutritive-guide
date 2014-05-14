@@ -6,17 +6,17 @@ import javax.persistence.Embeddable;
 import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
 
-import com.google.gson.annotations.Expose;
+import com.fabiale.nutritiveguide.gson.ExcludeField;
 
 @Embeddable
 public class FoodElementId implements Serializable {
 
 	private static final long serialVersionUID = -3104046623690214844L;
 	
+	@ExcludeField
 	@ManyToOne(fetch = FetchType.LAZY)
 	private Food food;
-	@ManyToOne
-	@Expose
+	@ManyToOne(fetch = FetchType.EAGER)
 	private Element element;
 
 	public Food getFood() {

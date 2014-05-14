@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.fabiale.nutritiveguide.model.Food;
@@ -30,6 +31,12 @@ public class FoodController {
 	@RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Food> index() {
 		return repository.findAll();
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/filter/name", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<Food> findByName(@RequestParam("name") String name) throws NotFoundException {
+		return repository.findByName(name);
 	}
 	
 	@ResponseBody

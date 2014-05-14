@@ -33,7 +33,7 @@ public class GSONHttpMessageConverter extends AbstractHttpMessageConverter<Objec
     private GsonBuilder gsonBuilder = new GsonBuilder()
             .setDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ")
             .setPrettyPrinting()
-            .excludeFieldsWithoutExposeAnnotation();
+            .addSerializationExclusionStrategy(new ExclusionStrategyFoodElement());
 
     public GSONHttpMessageConverter() {
         super(new MediaType("application", "json", DEFAULT_CHARSET));

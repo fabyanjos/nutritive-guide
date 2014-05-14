@@ -1,39 +1,28 @@
 <html>
 <body>
-<div id="title">Hello World!</div>
+<div id="title">Comparar</div>
 <div id="content">
-	<div class="panel">
-	   <div class="panel-heading">Panel heading</div>
-	    <table>
+	<div ng-controller="FoodCtrl">
+		<form id="search-box" ng-submit="add();">
+			<div>
+			    <input type="text" ng-model="asyncSelected" placeholder="Alimento" 
+			    	typeahead="food.name for food in getLocation($viewValue) | filter:$viewValue" 
+			    	typeahead-loading="loadingLocations" typeahead-on-select="onSelect($item)">
+		    </div>
+		    <input type="button" value="Add" ng-click="add()"/>
+		    <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i>
+		</form>
+		<div id="scrolltable">
+	    <table id="tb-food">
 	      <thead>
-	        <tr>
-	          <th>#</th>
-	          <th>First Name</th>
-	          <th>Last Name</th>
-	          <th>Username</th>
-	          <th>Username</th>
-	          <th>Username</th>
-	        </tr>
 	      </thead>
 	      <tbody>
-	        <tr>
-	          <td>1</td>
-	          <td>Mark</td>
-	          <td>Otto</td>
-	          <td>@mdo</td>
-	          <td>@mdo</td>
-	          <td>@mdo</td>
-	        </tr>
-	        <tr>
-	          <td>2</td>
-	          <td>Jacob</td>
-	          <td>Thornton</td>
-	          <td>@fat</td>
-	          <td>@mdo</td>
-	          <td>@mdo</td>
+	        <tr ng-repeat="(title, value) in foods">
+	          <td ng-repeat="text in value track by $index">{{formatNumber(text)}}</td>
 	        </tr>
 	      </tbody>
 	    </table>
+	    </div>
 	</div>
 </div>
 </body>

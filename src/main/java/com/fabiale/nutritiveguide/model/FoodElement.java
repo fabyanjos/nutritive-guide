@@ -9,8 +9,6 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.Table;
 
-import com.google.gson.annotations.Expose;
-
 @Entity
 @Table(name = "food_element")
 @AssociationOverrides({
@@ -21,9 +19,7 @@ public class FoodElement implements Serializable {
 	private static final long serialVersionUID = 499491218083333185L;
 
 	@EmbeddedId
-	@Expose
 	private FoodElementId pk;
-	@Expose
 	private String value;
 
 	public FoodElementId getPk() {

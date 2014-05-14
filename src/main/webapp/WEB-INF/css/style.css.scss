@@ -24,7 +24,7 @@ $primary-color:	#6C6C6C;
 }
 
 body {
-	width: 100%;
+	width: 95%;
 	margin-left: 10%;
 	font-size: 14px;
 	font-family: serif;
@@ -34,24 +34,21 @@ body {
 }
 .container {
 	margin: 25px 0 0 -20px;
-	width: 85%;
+	width: 90%;
 	padding-left: 0;
-}
-:first-letter {
-	text-transform: capitalize;
 }
 
 table {
+	min-width: 50%;
 	@extend .table;
 	@extend .table-striped;
 	@extend .table-hover;
-	@extend .table-condensed;
+	@extend .table-bordered;
 }
 
 .panel {
 	@extend .panel;
 	@extend .panel-default;
-	@extend .table-responsive;
 }
 
 .navbar-toggle {
@@ -82,4 +79,55 @@ nav {
 nav#side-menu ul {
 	@extend .nav;
 	@extend .navmenu-nav;
+}
+#scrolltable {
+	overflow: scroll;
+	@extend .table-responsive;
+	padding: 4px;
+	width: 99.6%;
+}
+#scrolltable table tr th, #scrolltable table tr td {
+	white-space: pre-wrap;
+	padding-left: 5px;
+}
+#search-box {
+	padding: 0;
+	margin-left: 16px;
+	@extend .form-group;
+	@extend .col-sm-12;
+}
+input[type="button"] {
+	@extend .btn;
+	@extend .btn-default;
+	@extend .col-sm-1;
+}
+input[type="text"] {
+	@extend .form-control;
+
+}
+#search-box div {
+	@extend .col-sm-10;
+}
+#tb-food tr:first-child {
+	font-weight: bold;
+}
+#tb-food td:first-child {
+	font-weight: bold;
+}
+#tb-food tr:first-child td:first-child {
+	border-top-color: transparent;
+	border-left-color: transparent;
+	background-color: transparent;
+}
+footer {
+	border-top: 1px solid #eee;
+	width: 100%;
+	padding: 10px;
+	margin-top: 20px;
+}
+#mainContent {
+	width: 100%;
+	padding-left: 22px;
+	position: relative;
+	min-height: 400px;
 }

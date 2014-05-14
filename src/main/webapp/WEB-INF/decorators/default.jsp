@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR" ng-app="nutritive-guide">
   <head>
     <meta charset="UTF-8">
-	<meta http-equiv=”content-language” content="en">
+	<meta http-equiv=”content-language” content="pt-BR">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="Fabi Anjos">
 
-    <title>Template <sitemesh:write property="title"/></title>
+    <title>Nutritive Guide :: <sitemesh:write property="title"/></title>
 
     <link href="/css/style.css" rel="stylesheet">
 
@@ -20,9 +20,9 @@
 
   <body>
 
-    <aside id="canvas" class="navmenu-fixed-right">
+    <!-- aside id="canvas" class="navmenu-fixed-right">
       <nav id="side-menu" role="navigation">
-        <a class="navmenu-brand" href="#">Brand</a>
+        <a class="navmenu-brand" href="#">Nutritive Guide</a>
         <ul>
           <li class="active"><a href="#">Home</a></li>
           <li><a href="#">Link</a></li>
@@ -46,19 +46,28 @@
           <span class="icon-bar"></span>
         </button>
       </div>
-    </aside>
+    </aside-->
 
 	<div class="container">
-		<div class="page-header">
-		  <h1><sitemesh:write property="div.title"/></h1>
+		<div id="mainContent">
+			<div class="page-header">
+			  <h1><sitemesh:write property="div.title"/></h1>
+			</div>
+			
+			<sitemesh:write property="div.content"/>
 		</div>
-		
-		<sitemesh:write property="div.content"/>
+			
+			<footer>Created by fabyanjos | 2014</footer>
 		
 	</div>
-
+	
     <script src="/js/jquery-1.10.2.min.js"></script>
+    <script src="/js/angular.min.js"></script>
+    <script src="/js/angular-resource.js"></script>
+    <script src="/js/ui-bootstrap-tpls-0.10.0.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/jasny-bootstrap.min.js"></script>
+    <script src="/js/numeral.min.js"></script>
+    <script src="/js/main.js"></script>
   </body>
 </html>
