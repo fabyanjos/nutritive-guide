@@ -5,8 +5,8 @@
 	<div ng-controller="FoodCtrl">
 		<form id="search-box" ng-submit="add();">
 			<div>
-			    <input type="text" ng-model="asyncSelected" placeholder="Alimento" 
-			    	typeahead="food.name for food in getLocation($viewValue) | filter:$viewValue" 
+			    <input type="text" ng-model="asyncSelected" placeholder="Nome" 
+			    	typeahead="food.name for food in search($viewValue) | filter:$viewValue" 
 			    	typeahead-loading="loadingLocations" typeahead-on-select="onSelect($item)">
 		    </div>
 		    <input type="button" value="Add" ng-click="add()"/>

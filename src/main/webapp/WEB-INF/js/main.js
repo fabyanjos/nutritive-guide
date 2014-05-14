@@ -83,7 +83,7 @@ app.controller("FoodCtrl", [ '$scope', '$http', 'Food', 'appService', function($
 		}
 	};
 	
-	$scope.getLocation = function(val) {
+	$scope.search = function(val) {
 		var list = [];
 		return $http.get('/food/filter/name', {
 			params : { name : val }

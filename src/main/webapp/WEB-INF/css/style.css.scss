@@ -42,7 +42,6 @@ table {
 	min-width: 50%;
 	@extend .table;
 	@extend .table-striped;
-	@extend .table-hover;
 	@extend .table-bordered;
 }
 
