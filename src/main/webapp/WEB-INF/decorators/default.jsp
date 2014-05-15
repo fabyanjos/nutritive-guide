@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="Fabi Anjos">
 
-    <title>Nutritive Guide :: <sitemesh:write property="title"/></title>
+    <title>Composi&ccedil;&atilde;o de alimentos :: <sitemesh:write property="title"/></title>
 
     <link href="/css/style.css" rel="stylesheet">
 
@@ -69,5 +69,8 @@
     <script src="/js/jasny-bootstrap.min.js"></script>
     <script src="/js/numeral.min.js"></script>
     <script src="/js/main.js"></script>
+    <script src="/js/services.js"></script>
+    <script src="/js/controllers.js"></script>
+    <script src="/js/filters.js"></script>
   </body>
 </html>
