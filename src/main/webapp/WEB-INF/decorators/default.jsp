@@ -64,8 +64,8 @@
     <script src="/js/jquery-1.10.2.min.js"></script>
     <script src="/js/angular.min.js"></script>
     <script src="/js/angular-resource.js"></script>
-    <script src="/js/ui-bootstrap-tpls-0.10.0.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/ui-bootstrap-tpls-0.10.0.min.js"></script>
     <script src="/js/jasny-bootstrap.min.js"></script>
     <script src="/js/numeral.min.js"></script>
     <script src="/js/main.js"></script>

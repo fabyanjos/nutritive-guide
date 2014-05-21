@@ -10,6 +10,15 @@ app.controller("FoodCtrl", [ '$scope', '$http', 'Food', 'appService', function($
 	$scope.formatNumber = function(number) {
 		return appService.formatNumber(number);
     };
+    $scope.isEmpty = function(obj) {
+		return appService.isEmpty(obj);
+    };
+    $scope.getTooltipText = function(text) {
+		return appService.getTooltipText(text);
+    };
+    $scope.isNumber = function(text) {
+		return appService.isNumber(text);
+    };
 	$scope.foods = {};
 	$scope.first = true;
 	

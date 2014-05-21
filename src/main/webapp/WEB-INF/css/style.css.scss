@@ -107,13 +107,13 @@ input[type="text"] {
 #search-box div {
 	@extend .col-sm-10;
 }
-#tb-food tr:first-child {
+#tb-food tbody tr:first-child {
 	font-weight: bold;
 }
-#tb-food td:first-child {
+#tb-food tbody td:first-child {
 	font-weight: bold;
 }
-#tb-food tr:first-child td:first-child {
+#tb-food tbody tr:first-child td:first-child {
 	border-top-color: transparent;
 	border-left-color: transparent;
 	background-color: transparent;
@@ -129,4 +129,22 @@ footer {
 	padding-left: 22px;
 	position: relative;
 	min-height: 400px;
+}
+.higher {
+	color: blue;
+	font-weight: bolder;
+}
+ol {
+	list-style-type: upper-alpha;
+}
+ol li ol {
+	list-style-type: lower-alpha;
+}
+.tooltipHelp {
+	@extend .glyphicon;
+	@extend .glyphicon-info-sign;
+	cursor: pointer;
+}
+#tb-food tbody tr:first-child .tooltipHelp{
+	display: none;
 }
