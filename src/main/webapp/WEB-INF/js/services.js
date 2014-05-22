@@ -70,8 +70,10 @@ app.factory('appService', function() {
         getTooltipText: function(text) {
         	if(text.indexOf("(g)") > -1)
         		return "grama";
-        	else if(text.indexOf("(mg)") > -1)
+        	else if(text.indexOf("(mcg)") > -1)
         		return "micrograma";
+        	else if(text.indexOf("(mg)") > -1)
+        		return "miligrama";
         	else if(text.indexOf("(kcal)") > -1)
         		return "kilocaloria";
         	else if(text.indexOf("(kJ)") > -1)
@@ -81,9 +83,9 @@ app.factory('appService', function() {
         	else if(text == "NA")
         		return "Não aplicável";
         	else if(text == "Tr")
-        		return "Traço";
+        		return "Traço: Valores de nutrientes arredondados para números que caiam entre 0 e 0,5, com uma casa decimal que caiam entre 0 e 0,05, ";
         	else if(text == "-")
-        		return "Análises não realizada";
+        		return "Análise não realizada";
         	else 
         		return "";
         },

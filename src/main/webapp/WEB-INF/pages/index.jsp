@@ -1,6 +1,6 @@
 <html>
 <body>
-<div id="title">Comparar</div>
+<div id="title">Comparar alimentos</div>
 <div id="content">
 	<div ng-controller="FoodCtrl">
 		<form id="search-box" ng-submit="add();">
@@ -24,8 +24,9 @@
 		        </tr>
 		      </tbody>
 		    </table>
-		    <!-- div ng-if="!isEmpty(foods)">
-		    	Tr: Tra&ccedil;o. Adotou-se tra&ccedil;o nas seguintes situa&ccedil;&otilde;es:
+		    <div ng-if="!isEmpty(foods)">
+		    	<p><strong>Fonte:</strong> <a href="http://www.unicamp.br/nepa/taco/" target="blank">TACO</a> - Tabela Brasileira de Composi&ccedil;&atilde;o de Alimentos</p>
+		    	<!-- Tr: Tra&ccedil;o. Adotou-se tra&ccedil;o nas seguintes situa&ccedil;&otilde;es:
 				<ol>
 					<li>valores de nutrientes arredondados para n&uacute;meros que caiam entre 0 e 0,5;</li>
 					<li>valores de nutrientes arredondados para n&uacute;meros com uma casa decimal que caiam entre 0 e 0,05;</li>
@@ -45,8 +46,8 @@
 							<li>retinol em l&aacute;cteos: 20μg/100g.</li>
 						</ol>
 					</li>
-				</ol> 
-	    	</div-->
+				</ol--> 
+	    	</div>
 	    </div>
 	</div>
 </div>
