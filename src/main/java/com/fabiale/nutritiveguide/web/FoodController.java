@@ -34,9 +34,9 @@ public class FoodController {
 	}
 	
 	@ResponseBody
-	@RequestMapping(value = "/filter/name", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<Food> findByName(@RequestParam("name") String name) throws NotFoundException {
-		return repository.findByName(name);
+	@RequestMapping(value = "/filter/{name}/{maxResults}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<Food> findByName(@RequestParam("name") String name, @RequestParam("maxResults") int maxResults) throws NotFoundException {
+		return repository.findByName(name, maxResults);
 	}
 	
 	@ResponseBody

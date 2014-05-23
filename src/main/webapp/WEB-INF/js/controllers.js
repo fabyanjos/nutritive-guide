@@ -43,8 +43,8 @@ app.controller("FoodCtrl", [ '$scope', '$http', 'Food', 'appService', function($
 	$scope.search = function(val) {
 		var list = [];
 		if(val.length >= 2) {
-			return $http.get('/food/filter/name', {
-				params : { name : val }
+			return $http.get('/food/filter/name/maxResults', {
+				params : { name : val , maxResults: 10 }
 			}).success(function(data, status, headers, config) {
 				angular.forEach(data, function(item) {
 					list.push(item);

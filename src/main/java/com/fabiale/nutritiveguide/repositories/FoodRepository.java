@@ -6,6 +6,6 @@ import com.fabiale.nutritiveguide.model.Food;
 
 public interface FoodRepository extends GenericRepository<Food, Integer> {
 	
-	List<Food> findByName(String name);
+	List<Food> findByName(String name, int maxResults);
 
 }

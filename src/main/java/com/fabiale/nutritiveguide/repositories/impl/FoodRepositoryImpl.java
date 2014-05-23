@@ -3,7 +3,6 @@ package com.fabiale.nutritiveguide.repositories.impl;
 import java.util.List;
 
 import org.hibernate.Criteria;
-import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 import org.hibernate.transform.Transformers;
@@ -20,10 +19,14 @@ public class FoodRepositoryImpl extends GenericRepositoryImpl<Food, Integer> imp
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Food> findByName(String name) {
+	public List<Food> findByName(String name, int maxResults) {
 		Criteria criteria = this.getSession().createCriteria(Food.class);
-    	criteria.add(Restrictions.like("name", name, MatchMode.ANYWHERE).ignoreCase());
-    	criteria.setMaxResults(6);
+//    	criteria.add(Restrictions.like("name", name, MatchMode.ANYWHERE).ignoreCase());
+    	criteria.add(Restrictions.sqlRestriction("TRANSLATE({alias}.name,'ÀÁÃáàãÉÈéèÍíÓÒÕóòõÚú','AAAaaaEEeeIiOOOoooUu') ILIKE  '%" + name.replace(" ", "%") + "%'"));  
+    	
+    	if(maxResults > 0)
+    		criteria.setMaxResults(maxResults);
+    	
     	criteria.setProjection(Projections.projectionList()
 	    			.add(Projections.property("id"), "id")
 	    			.add(Projections.property("name"), "name"))

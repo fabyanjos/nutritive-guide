@@ -1,9 +1,8 @@
 app.factory('appService', function() {
     return {
         formatNumber: function(number) {
-        	var n = number.replace(",", ".");
-        	if(!isNaN(n) && number) {
-	        	var num = numeral(n).format('0.00');
+        	if(!isNaN(number) && number) {
+	        	var num = numeral(number).format('0.00');
 	            return num.replace(".", ",");
         	}
         	return number;
@@ -86,12 +85,13 @@ app.factory('appService', function() {
         		return "Traço: Valores de nutrientes arredondados para números que caiam entre 0 e 0,5, com uma casa decimal que caiam entre 0 e 0,05, ";
         	else if(text == "-")
         		return "Análise não realizada";
+        	else if(text == "*")
+        		return "Análise serão reavaliadas";
         	else 
         		return "";
         },
         isNumber: function(text) {
-        	var n = text.replace(",", ".");
-        	return !isNaN(n);
+        	return !isNaN(text);
         }
     };
 });
