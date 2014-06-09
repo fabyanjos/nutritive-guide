@@ -15,14 +15,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.fabiale.nutritiveguide.model.Food;
 import com.fabiale.nutritiveguide.repositories.FoodRepository;
 
 @Controller
-@RequestMapping("/food")
+@RequestMapping("/foods")
 public class FoodController {
 	
 	@Autowired FoodRepository repository;
@@ -31,12 +30,6 @@ public class FoodController {
 	@RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Food> index() {
 		return repository.findAll();
-	}
-	
-	@ResponseBody
-	@RequestMapping(value = "/filter/{name}/{maxResults}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<Food> findByName(@RequestParam("name") String name, @RequestParam("maxResults") int maxResults) throws NotFoundException {
-		return repository.findByName(name, maxResults);
 	}
 	
 	@ResponseBody
@@ -60,5 +53,17 @@ public class FoodController {
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public void update(@PathVariable("id") Integer id, @Valid @RequestBody(required = true) Food category) {
 		repository.update(category);
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/names/{name}/{maxResults}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<Food> findByName(@PathVariable("name") String name, @PathVariable("maxResults") int maxResults) throws NotFoundException {
+		return repository.findByName(name, maxResults);
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/element/{element}/{categoryId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<Food> findByElement(@PathVariable("element") String element, @PathVariable("categoryId") Long categoryId) throws NotFoundException {
+		return repository.findByElement(element, 10, categoryId);
 	}
 }

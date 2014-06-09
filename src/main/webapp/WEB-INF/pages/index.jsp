@@ -8,9 +8,10 @@
 			    <input type="text" ng-model="asyncSelected" placeholder="Digite o nome do alimento. Ex: Arroz" 
 			    	typeahead="food.name for food in search($viewValue) | filter:$viewValue" 
 			    	typeahead-loading="loadingFoods" typeahead-on-select="onSelect($item)">
+			    <i ng-show="loadingFoods" class="glyphicon glyphicon-refresh loading-icon"></i>
 		    </div>
+		    
 		    <input type="button" value="Adicionar" ng-click="add()"/>
-		    <i ng-show="loadingFoods" class="glyphicon glyphicon-refresh"></i>
 		</form>
 		<div id="scrolltable">
 		    <table id="tb-food">

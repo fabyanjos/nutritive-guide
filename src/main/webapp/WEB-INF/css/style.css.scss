@@ -95,6 +95,9 @@ nav#side-menu ul {
 	@extend .form-group;
 	@extend .col-sm-12;
 }
+#filter-box {
+	@extend .form-inline;
+}
 input[type="button"] {
 	@extend .btn;
 	@extend .btn-default;
@@ -102,7 +105,12 @@ input[type="button"] {
 }
 input[type="text"] {
 	@extend .form-control;
-
+}
+select {
+	@extend .form-control;
+	@extend .col-md-4;
+	width: 30% !important;
+	margin: 0 10px 10px 0;
 }
 #search-box div {
 	@extend .col-sm-10;
@@ -147,4 +155,60 @@ ol li ol {
 }
 #tb-food tbody tr:first-child .tooltipHelp{
 	display: none;
+}
+.loading-icon {
+	line-height: 2.2;
+	position: absolute;
+	right: 25px;
+}
+ul {
+  list-style: none;
+}
+ul li {
+  padding: 0.2em
+}
+
+label.styled {
+  background-color: #f8a901;
+  display: block;
+  width: 300px;
+  text-align: center;
+  padding: 0.6em 2em;
+  color: #fff;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+label.styled:before {
+  content: "«";
+  line-height: 40px;
+  font-size: 25px;
+  color: #fff;
+  width:40px;
+  height:100%; 
+  background-color: #9a5502;
+  position: absolute;
+  top:0;
+  left:100%;
+}
+label.styled:hover:before {
+  left: 98%;
+  opacity: .3;
+}
+input.styled {
+  display: none;
+}
+input.styled:checked ˜ label.styled {
+  background-color: #F88701;
+}
+input.styled:checked ˜ label.style:before {
+  left: 0px;
+  opacity: 1;
+}
+@keyframes throw {
+  0%,63% { margin-left: 0; }
+  64% { margin-left: -5px; }
+  100% { margin-left: 0; }
 }

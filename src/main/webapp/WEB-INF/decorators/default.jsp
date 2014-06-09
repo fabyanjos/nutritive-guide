@@ -10,6 +10,7 @@
     <title>Composi&ccedil;&atilde;o de alimentos :: <sitemesh:write property="title"/></title>
 
     <link href="/css/style.css" rel="stylesheet">
+    <link href="/css/chosen.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -20,13 +21,13 @@
 
   <body>
 
-    <!-- aside id="canvas" class="navmenu-fixed-right">
+    <aside id="canvas" class="navmenu-fixed-right">
       <nav id="side-menu" role="navigation">
-        <a class="navmenu-brand" href="#">Nutritive Guide</a>
+        <a class="navmenu-brand" href="/">Home</a>
         <ul>
-          <li class="active"><a href="#">Home</a></li>
-          <li><a href="#">Link</a></li>
-          <li class="dropdown">
+        <li><a href="/">Composi&ccedil;&atilde;o de alimentos</a></li>
+          <li><a href="/nutriente">Consulta por nutriente</a></li>
+          <!--li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               Dropdown <b class="caret"></b>
             </a>
@@ -34,7 +35,7 @@
               <li><a href="#">Action</a></li>
               <li><a href="#">Another action</a></li>
             </ul>
-          </li>
+          </li-->
         </ul>
       </nav>
     
@@ -46,7 +47,7 @@
           <span class="icon-bar"></span>
         </button>
       </div>
-    </aside-->
+    </aside>
 
 	<div class="container">
 		<div id="mainContent">
@@ -67,12 +68,13 @@
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/ui-bootstrap-tpls-0.10.0.min.js"></script>
     <script src="/js/jasny-bootstrap.min.js"></script>
+    <script src="/js/chosen.jquery.min.js"></script>
     <script src="/js/numeral.min.js"></script>
     <script src="/js/main.js"></script>
     <script src="/js/services.js"></script>
     <script src="/js/controllers.js"></script>
     <script src="/js/filters.js"></script>
-    
+
     <script>
 	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

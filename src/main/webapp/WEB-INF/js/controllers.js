@@ -31,6 +31,10 @@ app.controller("FoodCtrl", [ '$scope', '$http', 'Food', 'appService', function($
 			Food.get({ id : $scope.$item.id }, function(data) {
 				if($scope.first) {
 					$scope.first = false;
+//					$http.get('/js/elements-obj.json').then(function(result) {
+//						$scope.foods = result.data;
+//						console.log($scope.foods);
+//			        });
 					appService.createArray(data, $scope.foods);
 				}
 				appService.updateArray(data, $scope.foods);
@@ -41,20 +45,56 @@ app.controller("FoodCtrl", [ '$scope', '$http', 'Food', 'appService', function($
 	};
 	
 	$scope.search = function(val) {
-		var list = [];
 		if(val.length >= 2) {
-			return $http.get('/food/filter/name/maxResults', {
-				params : { name : val , maxResults: 10 }
-			}).success(function(data, status, headers, config) {
-				angular.forEach(data, function(item) {
-					list.push(item);
-				});
-	        }).error(function(data, status, headers, config) {
-	            console.log('error: ' + status);
-	        }).then(function(res){
-	        	return list;
-		    });
+			var result = Food.query({ method: 'names', name: val, maxResults: 10});
+			
+			return result.$promise.then(
+					function(data) {
+						return data;
+					});
 		}
 		return [];
 	};
+}]);
+
+app.controller("FoodElementCtrl",['$http', '$scope', 'FoodElement', 'appService', 'Category', function($http, $scope, FoodElement, appService, Category) {
+	$scope.formatNumber = function(number) {
+		return appService.formatNumber(number);
+    };
+    $scope.isEmpty = function(obj) {
+		return appService.isEmpty(obj);
+    };
+	$scope.foods = [];
+
+	$scope.elements = [];
+	$scope.categories = [];
+	
+	$scope.fetchCategories = function() {
+		var result = Category.query(function(){});
+		result.$promise.then(function(data) {
+			$scope.categories = data;
+		});
+	};
+	$scope.fetchElements = function() {
+        $http.get('/js/elements.json').then(function(result) {
+            $scope.elements = result.data;
+        });
+    };
+
+    $scope.fetchElements();
+    $scope.fetchCategories();
+		
+	$scope.change = function() {
+		console.log("change");
+		var categoryId = $scope.category ? $scope.category.id : '0';
+		if($scope.element) {
+			$("#category").attr('style', "display:")
+			var result = FoodElement.query({ method: 'element', element: $scope.element.value, category: categoryId});
+			result.$promise.then(function(data) {
+				$scope.foods = data;
+			});
+		}
+	};
+	
+	
 }]);

@@ -11,4 +11,9 @@ public class HomeController {
 	public String home() {
 		return "index";
 	}
+	
+	@RequestMapping(value = "/nutriente", method = { RequestMethod.GET })
+	public String element() {
+		return "element";
+	}
 }

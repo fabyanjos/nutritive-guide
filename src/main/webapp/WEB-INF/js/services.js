@@ -64,7 +64,7 @@ app.factory('appService', function() {
 			});
         },
         isEmpty: function(obj) {
-        	return angular.equals({}, obj);
+        	return angular.equals({}, obj) || angular.equals([], obj) || angular.equals(undefined, obj);
         },
         getTooltipText: function(text) {
         	if(text.indexOf("(g)") > -1)
